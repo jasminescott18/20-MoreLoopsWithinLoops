@@ -352,8 +352,15 @@ def numbers_increasing_forward(r, maxnum):
 
     Preconditions:  r and maxnum are positive integers.
     """
+    for i in range(r):
+        total = ''
+        for k in range(maxnum):
+            for j in range(k + 1):
+                total = total + str(k + 1)
+            total = total + ' '
+        print(total)
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # COMPLETED: 7. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
