@@ -216,7 +216,7 @@ def run_test_first_is_elsewhere_too():
 
     # Test 3:
     expected = False
-    answer = first_is_elsewhere_too([[], [1, 2], [1, 2]])
+    answer = first_is_elsewhere_too([(), (1, 2), (1, 2)])
     print('Expected and actual are:', expected, answer)
     print(message[answer == expected])
     no_failures = no_failures and (answer == expected)
@@ -408,8 +408,21 @@ def first_is_elsewhere_too(seq_seq):
       :type seq_seq: (list, tuple)
     and the given argument is a sequence of sequences.
     """
+
+    for i in range(len(seq_seq)):
+        sequence = seq_seq[i]
+        first_number = seq_seq[0]
+        if first_number == ():
+            return False
+        group = seq_seq[0]
+        initial = group[0]
+        for j in range(len(sequence)):
+            if initial == sequence[j]:
+                return True
+        return False
+
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # COMPLETED: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
